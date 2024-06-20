@@ -12,7 +12,7 @@ def configure_routes(app):
     @app.route('/recommend/<user_id>', methods=['POST'])
     def recommend_post(user_id):
         try:
-            database = get_mysql_connection()
+            database = get_mysql_engine()
             recommender = ContentBasedRecommender(database)
             recommendations = recommender.get_recommendations(user_id)
         
